@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>API Proxy Example</title>
+</head>
+<body>
+  <div id="result"></div>
+
+  <script>
+    var url = 'https://api.football-data.org/v4/competitions/PL/';
+    var proxyUrl = 'proxy.php?url=' + encodeURIComponent(url);
+
+    fetch(proxyUrl)
+      .then(response => response.text())
+      .then(result => {
+        document.getElementById('result').textContent = result;
+      })
+      .catch(error => console.log('error', error));
+  </script>
+</body>
+</html>
